@@ -6,29 +6,45 @@ $directory\
 [](fg:#434C5E bg:#3B4252)\
 $git_branch\
 $git_status\
-[](fg:#3B4252)\
+[](fg:#3B4252 bg:none)\
+$battery\
 $character
 """
-
-[directory]
-style = "fg:#ECEFF4 bg:#434C5E"
-read_only = " "
-read_only_style = "fg:#D08770"
 
 [username]
 show_always = true
 style_user = "fg:#2E3440 bg:#81A1C1 bold"
 format = '[ $user ]($style)'
 
+[directory]
+style = "fg:#ECEFF4 bg:#434C5E"
+read_only = " "
+read_only_style = "fg:#D08770"
+format = "[ $path ]($style)"
+
 [git_branch]
 symbol = ""
 style = "fg:#88C0D0 bg:#3B4252"
-format = '[$symbol $branch ]($style)'
+format = '[ $symbol $branch ]($style)'
 
 [git_status]
 style = "fg:#BF616A bg:#3B4252"
-format = '[($all_status$ahead_behind )]($style)'
+format = '[($all_status$ahead_behind)]($style)'
 
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "🔌"
+unknown_symbol = "❓"
+empty_symbol = "🪫"
+format = " [$symbol $percentage]($style)"
+
+[battery.display]
+threshold = 20
+style = "bold red"
+
+
